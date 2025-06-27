@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result for {{ label.upper() }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: 
+                linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
+                url('static/1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #111;
+            min-height: 100vh;
+            height: auto;
+            text-align: center;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        img.butterfly-image {
+            max-width: 80%;
+            height: auto;
+            border: 2px solid #111;
+            border-radius: 12px;
+            margin: 25px auto;
+            display: block;
+        }
+
+        .description {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #222;
+            text-align: justify;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #333;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 26px;
+            }
+
+            .description {
+                font-size: 15px;
+            }
+
+            img.butterfly-image {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Title -->
+        <h1>Result for: {{ label.upper() }}</h1>
+
+        <!-- Image Display -->
+        {% if image %}
+            <img src="{{ url_for('static', filename=image) }}" alt="{{ label }}" class="butterfly-image">
+        {% else %}
+            <p><strong>Image not available.</strong></p>
+        {% endif %}
+
+        <!-- Description -->
+        <div class="description">
+            {{ description if description else "No informative content found." }}
+        </div>
+
+        <!-- Back Button -->
+        <a class="back-button" href="{{ url_for('index') }}">← Back to Home</a>
+    </div>
+</body>
+</html>
