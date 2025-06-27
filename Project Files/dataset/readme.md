@@ -1,6 +1,8 @@
+Due to Git hub 25mb limitation i had to remove the 300mb Photos from the sets 
+
 This project uses the **Butterfly Image Classification** dataset from Kaggle, which contains images from 75 different species of butterflies.
 
-**(https://www.kaggle.com/datasets/phucthaiv02/butterfly-image-classification)**
+https://www.kaggle.com/datasets/phucthaiv02/butterfly-image-classification
 
 To use this dataset:
 1. Create a free Kaggle account.
